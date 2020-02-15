@@ -9,6 +9,10 @@ namespace Waifu_Party.Gui
     {
         private Gui _currentGui;
 
+        public GuiManager()
+        {
+        }
+
         public void OpenGui(Gui gui)
         {
             _currentGui = gui;
@@ -17,12 +21,18 @@ namespace Waifu_Party.Gui
 
         public void Update(GameTime gameTime)
         {
-            _currentGui.Update(gameTime);
+            if (_currentGui != null)
+            {
+                _currentGui.Update(gameTime);
+            }
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            _currentGui.Draw(gameTime, spriteBatch);
+            if (_currentGui != null)
+            {
+                _currentGui.Draw(gameTime, spriteBatch);
+            }
         }
     }
 

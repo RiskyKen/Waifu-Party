@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
+using System.IO;
 using Waifu_Party.Gui;
 
 namespace Waifu_Party
@@ -14,7 +14,9 @@ namespace Waifu_Party
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GuiManager guiManager;
-        
+        Texture2D textureAkko;
+
+
         public WaifuParty()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,6 +55,11 @@ namespace Waifu_Party
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            FileStream filestream = new FileStream("assets/sprites/characters/akko_dark.jpg", FileMode.Open);
+            textureAkko = Texture2D.FromStream(GraphicsDevice, filestream);
+            filestream.Close();
+            filestream.Dispose();
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -88,6 +95,9 @@ namespace Waifu_Party
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            spriteBatch.Draw(textureAkko, new Vector2(0, 0), Color.White);
+            spriteBatch.End();
 
             // TODO: Add your drawing code here
             guiManager.Draw(gameTime, spriteBatch);
