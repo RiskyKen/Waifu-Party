@@ -23,7 +23,7 @@ namespace Waifu_Party
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-            Content.RootDirectory = "Content";
+            graphics.ApplyChanges();
         }
 
         protected void OnResize(Object sender, EventArgs e)
