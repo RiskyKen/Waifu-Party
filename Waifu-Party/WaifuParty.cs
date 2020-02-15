@@ -74,6 +74,7 @@ namespace Waifu_Party
         {
             // TODO: Unload any non ContentManager content here
             Content.Dispose();
+            textureAkko.Dispose();
         }
 
         /// <summary>
