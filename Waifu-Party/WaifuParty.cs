@@ -12,10 +12,11 @@ namespace Waifu_Party
     /// </summary>
     public class WaifuParty : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        GuiManager guiManager;
-        Texture2D textureAkko;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        private AssetManager assetManager;
+        private GuiManager guiManager;
+        private Texture2D textureAkko;
 
 
         public WaifuParty()
@@ -43,6 +44,7 @@ namespace Waifu_Party
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
             Window.ClientSizeChanged += new EventHandler<EventArgs>(OnResize);
+            assetManager = new AssetManager("assets/");
             guiManager = new GuiManager();
             guiManager.OpenGui(new GuiMainMenu());
 
@@ -57,11 +59,9 @@ namespace Waifu_Party
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            assetManager.LoadContent();
+            textureAkko = assetManager.LoadTexture("characters/akko_dark.jpg");
 
-            FileStream filestream = new FileStream("assets/sprites/characters/akko_dark.jpg", FileMode.Open);
-            textureAkko = Texture2D.FromStream(GraphicsDevice, filestream);
-            filestream.Close();
-            filestream.Dispose();
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,6 +74,7 @@ namespace Waifu_Party
         {
             // TODO: Unload any non ContentManager content here
             Content.Dispose();
+            assetManager.Dispose();
             textureAkko.Dispose();
         }
 
