@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Waifu_Party.Gui;
 
 namespace Waifu_Party
 {
@@ -11,6 +12,7 @@ namespace Waifu_Party
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        GuiManager guiManager;
         
         public WaifuParty()
         {
@@ -27,7 +29,9 @@ namespace Waifu_Party
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            this.IsMouseVisible = true;
+            IsMouseVisible = true;
+            Window.AllowUserResizing = true;
+            guiManager = new GuiManager();
 
             base.Initialize();
         }
@@ -64,7 +68,7 @@ namespace Waifu_Party
                 Exit();
 
             // TODO: Add your update logic here
-
+            guiManager.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -77,7 +81,7 @@ namespace Waifu_Party
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            guiManager.Draw(gameTime, spriteBatch);
             base.Draw(gameTime);
         }
     }
