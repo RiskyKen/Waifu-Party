@@ -50,9 +50,15 @@ namespace Waifu_Party
                 {
                     filestream.Dispose();
                 }
+                if (texture2D == null)
+                {
+                    // Something went wrong when loading the image.
+                    texture2D = missingImage;
+                }
             }
             else
             {
+                // The image file want not found.
                 texture2D = missingImage;
             }
 
