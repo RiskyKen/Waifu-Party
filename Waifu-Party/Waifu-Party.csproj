@@ -53,6 +53,9 @@
     <Compile Include="AssetManager.cs" />
     <Compile Include="Gui\GuiMainMenu.cs" />
     <Compile Include="Gui\Gui.cs" />
+    <Compile Include="Level\Level.cs" />
+    <Compile Include="Level\LevelLoader.cs" />
+    <Compile Include="Level\LevelManager.cs" />
     <Compile Include="WaifuParty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +118,12 @@
     </None>
     <None Include="app.config" />
     <None Include="app.manifest" />
+    <Content Include="assets\core\common\levels\test level.level">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\core\common\levels\test level.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\core\common\sprites\characters\akko_dark.jpg">
@@ -134,6 +143,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\core\common\sounds\" />
     <Folder Include="assets\core\de\" />
     <Folder Include="assets\core\en-gb\" />
   </ItemGroup>

@@ -10,13 +10,13 @@ namespace Waifu_Party
 {
     public class AssetManager : IDisposable
     {
-        private readonly String PathAssets;
-        private const String PathMod = "core/common/";
-        private const String PathImages = "sprites/";
+        private readonly string PathAssets;
+        private const string PathMod = "core/common/";
+        private const string PathImages = "sprites/";
 
         private Texture2D missingImage;
 
-        public AssetManager(String assetsPath)
+        public AssetManager(string assetsPath)
         {
             this.PathAssets = assetsPath;
         }
@@ -32,10 +32,10 @@ namespace Waifu_Party
             // TODO: Unload assets.
         }
 
-        public Texture2D LoadTexture(String filePath)
+        public Texture2D LoadTexture(string filePath)
         {
             Texture2D texture2D = null;
-            String finalPath = PathAssets + PathMod + PathImages + filePath;
+            string finalPath = PathAssets + PathMod + PathImages + filePath;
             
             if (File.Exists(finalPath))
             {
