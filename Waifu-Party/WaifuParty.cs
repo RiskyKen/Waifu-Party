@@ -32,6 +32,7 @@ namespace Waifu_Party
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
             guiManager = new GuiManager();
+            guiManager.OpenGui(new GuiMainMenu());
 
             base.Initialize();
         }
@@ -55,6 +56,7 @@ namespace Waifu_Party
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            Content.Dispose();
         }
 
         /// <summary>

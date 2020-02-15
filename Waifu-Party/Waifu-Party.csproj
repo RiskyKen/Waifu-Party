@@ -50,6 +50,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Gui\Class1.cs" />
     <Compile Include="Gui\Gui.cs" />
     <Compile Include="WaifuParty.cs" />
     <Compile Include="Program.cs" />
