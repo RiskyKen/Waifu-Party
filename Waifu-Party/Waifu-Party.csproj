@@ -121,7 +121,7 @@
     <Content Include="assets\core\common\levels\test level.level">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\core\common\levels\test level.meta">
+    <Content Include="assets\core\common\levels\test level.info">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

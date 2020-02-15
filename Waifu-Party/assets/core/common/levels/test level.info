@@ -1,0 +1,11 @@
+# Test info file.
+
+# This file contains basic info about a level so that it
+# can be shown in a list without loading the full level.
+
+file name=test level.level
+level name=Test Level
+min players=2
+max players=8
+allowed game modes=pvp|coop
+preview image=test level.png
