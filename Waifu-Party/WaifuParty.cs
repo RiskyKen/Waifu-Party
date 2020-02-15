@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using Waifu_Party.Gui;
 
 namespace Waifu_Party
@@ -20,6 +21,11 @@ namespace Waifu_Party
             Content.RootDirectory = "Content";
         }
 
+        protected void OnResize(Object sender, EventArgs e)
+        {
+            
+        }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -31,6 +37,7 @@ namespace Waifu_Party
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
+            Window.ClientSizeChanged += new EventHandler<EventArgs>(OnResize);
             guiManager = new GuiManager();
             guiManager.OpenGui(new GuiMainMenu());
 
