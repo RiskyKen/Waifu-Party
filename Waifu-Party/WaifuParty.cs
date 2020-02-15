@@ -16,8 +16,9 @@ namespace Waifu_Party
         private SpriteBatch spriteBatch;
         private AssetManager assetManager;
         private GuiManager guiManager;
-        private Texture2D textureAkko;
-
+        private Texture2D textureAkkoDark;
+        private Texture2D textureAkkoLight;
+        private int imageTimer;
 
         public WaifuParty()
         {
@@ -60,10 +61,8 @@ namespace Waifu_Party
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             assetManager.LoadContent();
-            textureAkko = assetManager.LoadTexture("characters/akko_dark.jpg");
-
-
-            // TODO: use this.Content to load your game content here
+            textureAkkoDark = assetManager.LoadTexture("characters/akko_dark.jpg");
+            textureAkkoLight = assetManager.LoadTexture("characters/akko_light.jpg");
         }
 
         /// <summary>
@@ -75,7 +74,8 @@ namespace Waifu_Party
             // TODO: Unload any non ContentManager content here
             Content.Dispose();
             assetManager.Dispose();
-            textureAkko.Dispose();
+            textureAkkoDark.Dispose();
+            textureAkkoLight.Dispose();
         }
 
         /// <summary>
@@ -86,8 +86,15 @@ namespace Waifu_Party
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
                 Exit();
+            }
 
+            imageTimer++;
+            if (imageTimer > 99)
+            {
+                imageTimer = 0;
+            }
             // TODO: Add your update logic here
             guiManager.Update(gameTime);
             base.Update(gameTime);
@@ -101,10 +108,16 @@ namespace Waifu_Party
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            spriteBatch.Draw(textureAkko, new Vector2(0, 0), Color.White);
+            if (imageTimer > 49)
+            {
+                spriteBatch.Draw(textureAkkoDark, new Vector2(0, 0), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(textureAkkoLight, new Vector2(0, 0), Color.White);
+            }
             spriteBatch.End();
 
-            // TODO: Add your drawing code here
             guiManager.Draw(gameTime, spriteBatch);
             base.Draw(gameTime);
         }

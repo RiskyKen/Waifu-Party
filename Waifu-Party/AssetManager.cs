@@ -29,6 +29,7 @@ namespace Waifu_Party
         public void Dispose()
         {
             missingImage.Dispose();
+            // TODO: Unload assets.
         }
 
         public Texture2D LoadTexture(String filePath)
