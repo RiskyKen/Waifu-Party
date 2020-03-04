@@ -8,24 +8,27 @@ namespace Waifu_Party.Level
 {
     public class Level : IDisposable
     {
-        public Level()
-        {
+        private String _name;
 
+
+        public Level(String name)
+        {
+            this._name = name;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Draw()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 

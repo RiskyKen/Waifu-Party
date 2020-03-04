@@ -28,7 +28,7 @@ namespace Waifu_Party.Level
         public void LoadLevel(LevelInfo levelInfo)
         {
             UnloadLevel();
-            _currentLevel = LevelLoader.Load(levelInfo.GetFilename() + ".level");
+            _currentLevel = LevelLoader.Load(levelInfo.GetFilename().Replace(".info", ".level"));
         }
 
         public void UnloadLevel()
@@ -90,9 +90,9 @@ namespace Waifu_Party.Level
         private string _filename;
         private int _maxPlayer;
 
-        public LevelInfo()
+        public LevelInfo(String filename)
         {
-
+            this._filename = filename;
         }
 
         public string GetFilename()

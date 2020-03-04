@@ -68,6 +68,10 @@ namespace Waifu_Party
             _assetManager.LoadContent();
             _levelManager.LoadContent(_assetManager);
 
+            // Load test level.
+            LevelInfo levelInfo = _levelManager.GetLevelInfos()[0];
+            _levelManager.LoadLevel(levelInfo);
+
             // Test crap
             textureAkkoDark = _assetManager.LoadTexture("characters/akko_dark.jpg");
             textureAkkoLight = _assetManager.LoadTexture("characters/akko_light.jpg");

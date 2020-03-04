@@ -126,6 +126,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\core\common\levels\test_level.png" />
     <Content Include="assets\core\common\sprites\characters\akko_dark.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

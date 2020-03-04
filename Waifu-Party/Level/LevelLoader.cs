@@ -11,7 +11,12 @@ namespace Waifu_Party.Level
     {
         public static Level Load(string filePath)
         {
-            throw new NotImplementedException();
+            Level level = null;
+            if (File.Exists(filePath))
+            {
+                level = new Level(filePath);
+            }
+            return level;
         }
 
     }
@@ -23,7 +28,7 @@ namespace Waifu_Party.Level
             LevelInfo levelMetadata = null;
             if (File.Exists(filePath))
             {
-
+                levelMetadata = new LevelInfo(filePath);
             }
             else
             {
